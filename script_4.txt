@@ -1,0 +1,14 @@
+# Check model syntax
+modelCheck('./model.txt')
+
+# Compile with one chain
+modelCompile(1)
+
+# Start with 1000 update burn-in
+modelUpdate(1000)
+
+# Follow by a further 10,000 updates
+modelUpdate(10000)
+
+# Look at sample statistics
+samplesStats('*')

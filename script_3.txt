@@ -1,0 +1,22 @@
+# Check model syntax
+modelCheck('./model.txt')
+
+# Compile with one chain
+modelCompile(1)
+
+# Load inital values for first chain
+modelInits('./inits1.txt',1)
+
+# Start with 1000 update burn-in
+modelUpdate(1000)
+
+# Set nodes of interest
+samplesSet('alpha0')
+samplesSet('beta.c')
+samplesSet('sigma')
+
+# Follow by a further 10,000 updates
+modelUpdate(10000)
+
+# Look at sample statistics
+samplesStats('*')

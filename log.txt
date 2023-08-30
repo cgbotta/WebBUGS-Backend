@@ -1,0 +1,15 @@
+OpenBUGS version 3.2.3 rev 1012
+model is syntactically correct
+data loaded
+model compiled
+model is initialized
+1000 updates took 0 s
+monitor set
+monitor set
+monitor set
+10000 updates took 0 s
+Node statistics
+		mean	sd	MC_error	val2.5pc	median	val97.5pc	start	sample
+	alpha0	106.6	3.669	0.04221	99.41	106.6	113.6	1001	10000
+	beta.c	6.186	0.1091	0.001411	5.972	6.187	6.398	1001	10000
+	sigma	6.097	0.468	0.007489	5.263	6.07	7.106	1001	10000

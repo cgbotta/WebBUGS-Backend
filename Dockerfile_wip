@@ -1,0 +1,37 @@
+# Set base image (host OS)
+FROM ubuntu:22.04
+
+# By default, listen on port 3000
+EXPOSE 3000/tcp
+
+# Set the working directory in the container
+WORKDIR /app
+
+# Copy the dependencies file to the working directory
+COPY requirements.txt .
+COPY shared .
+
+RUN apt-get update -y && \
+    apt-get install -y python3-pip && \
+    pip3 install --no-cache-dir Flask
+    # apt-get -y install gcc-multilib && \
+    # cd OpenBUGS-3.2.3 && \
+    # ./configure && \
+    # make &&\
+    # make install &&\
+    # apt-get clean &&\
+    # rm -rf /var/lib/apt/lists/*
+
+# # Copy the content of the local src directory to the working directory
+COPY app.py .
+COPY data.txt .
+COPY execute.py .
+COPY inits1.txt .
+COPY inits2.txt .
+COPY model.txt .
+COPY script.txt .
+
+
+
+# # Specify the command to run on container start
+CMD [ "python3", "./app.py" ]
